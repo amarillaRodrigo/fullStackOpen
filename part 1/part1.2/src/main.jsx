@@ -1,6 +1,21 @@
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App1 from './app1/App1';
+import App2 from './app2/App2';
 
-import App from './App.jsx'
+const AppSelector = () => {
+  const path = window.location.pathname;
 
+  if (path === '/app2') {
+    return <App2 />;
+  }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+  return <App1 />;
+};
+
+ReactDOM.render(
+  <React.StrictMode>
+    <AppSelector />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
